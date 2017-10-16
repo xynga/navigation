@@ -1,0 +1,101 @@
+
+$brand-font: 'Gotham SSm A', 'Gotham SSm B', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$base-font-size: 14;
+
+$transition-duration-fastest: .125s;
+$transition-duration-faster: $transition-duration-fastest * 2;
+$transition-duration-fast: $transition-duration-fastest * 4;
+$transition-duration: $transition-duration-fastest * 8;
+$transition-duration-slow: $transition-duration-fastest * 16;
+$transition-duration-slower: $transition-duration-fastest * 32;
+$transition-duration-slowest: $transition-duration-fastest * 64;
+
+$colors: (
+  brand-primary-light: #e0ecf8,
+  brand-primary: #266eb3,
+  brand-primary-dark: #003d7c,
+  brand-primary-extradark: #0a2e50,
+  brand-secondary-extralight: #fbfeeb,
+  brand-secondary-light: #f5febf,
+  brand-secondary: #d4f024,
+  brand-secondary-dark: #c0d82f,
+  brand-secondary-extradark: #aabd30,
+  accent-warning-light: #fff7c4,
+  accent-warning: #ffe329,
+  accent-warning-dark: #eeca00,
+  accent-error-light: #ffe6e7,
+  accent-error: #d1373b,
+  accent-error-dark: #aa292d,
+  neutral-white: #fff,
+  neutral-superlight: #f0efef,
+  neutral-extralight: #d5d5d5,
+  neutral-light: #616161,
+  neutral: #414141,
+  neutral-dark: #262626,
+  neutral-extradark: #131313,
+  neutral-black: #000,
+);
+
+@function color( $key ) {
+  @if map-has-key( $colors, $key ) {
+    @return map-get( $colors, $key );
+  } @else {
+    @warn "The '#{$key}' in $colors doesn't exist.";
+    @return null;
+  }
+}
+
+@mixin font-size($font-size: $base-font-size) {
+  $rem: ($font-size / $base-font-size);
+  font-size: $font-size * 1px;
+  font-size: #{$rem}rem;
+}
+
+
+.menu {
+  display: block;
+
+  &:not(.open) > [body] {
+    transform: scale(.001, .001) translate(-100%, -100%);
+    opacity: 0;
+  }
+
+  &.open > [body] {
+    transform: scale(1, 1) translate(-50%, 0);
+    opacity: 1;
+  }
+
+  & > [body] {
+    z-index: 9999;
+    position: absolute;
+    left: 50%;
+    box-shadow:  2px 2px 10px 0 rgba(color(neutral-black), .3);
+    border: 1px solid color(neutral-extralight);
+    margin: 0;
+    padding: 12px 0;
+    min-width: 200px;
+    background-color: color(neutral-white);
+    font-family: $brand-font;
+    font-weight: 700;
+    text-align: left;
+    white-space: nowrap;
+    transition: transform $transition-duration, opacity $transition-duration;
+
+    list-style: none;
+
+    a {
+      display: block;
+      padding: 12px 16px;
+      @include font-size(14);
+      color: color(neutral-dark);
+      transition: background-color $transition-duration;
+
+      &:focus,
+      &:hover {
+        background-color: color(neutral-superlight);
+        text-decoration: underline;
+      }
+    }
+  }
+}
+

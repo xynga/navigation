@@ -1,0 +1,216 @@
+$breakpoints: (
+  base: 320,
+  base-large: 480,
+  x-small: 620,
+  small: 768,
+  medium: 960,
+  large: 1024,
+  x-large: 1200,
+  xx-large: 1400
+);
+
+$base-font-size: 14;
+
+$colors: (
+  brand-primary-light: #e0ecf8,
+  brand-primary: #266eb3,
+  brand-primary-dark: #003d7c,
+  brand-primary-extradark: #0a2e50,
+  brand-secondary-extralight: #fbfeeb,
+  brand-secondary-light: #f5febf,
+  brand-secondary: #d4f024,
+  brand-secondary-dark: #c0d82f,
+  brand-secondary-extradark: #aabd30,
+  accent-warning-light: #fff7c4,
+  accent-warning: #ffe329,
+  accent-warning-dark: #eeca00,
+  accent-error-light: #ffe6e7,
+  accent-error: #d1373b,
+  accent-error-dark: #aa292d,
+  neutral-white: #fff,
+  neutral-superlight: #f0efef,
+  neutral-extralight: #d5d5d5,
+  neutral-light: #616161,
+  neutral: #414141,
+  neutral-dark: #262626,
+  neutral-extradark: #131313,
+  neutral-black: #000,
+);
+
+$transition-duration-fastest: .125s;
+$transition-duration-faster: $transition-duration-fastest * 2;
+$transition-duration-fast: $transition-duration-fastest * 4;
+$transition-duration: $transition-duration-fastest * 8;
+$transition-duration-slow: $transition-duration-fastest * 16;
+$transition-duration-slower: $transition-duration-fastest * 32;
+$transition-duration-slowest: $transition-duration-fastest * 64;
+
+@mixin mq-breakpoint( $breakpoint, $type: 'min-width' ) {
+
+  // if the breakpoint value exists in the map...
+  @if map-has-key($breakpoints, $breakpoint) {
+
+    // write a MQ for the breakpoint
+    @media screen and ($type: #{map-get( $breakpoints, $breakpoint )}px) {
+
+      @content; // write CSS
+    }
+  } @else { // ... if it doesn't, then write a unique one
+
+    // write non-map MQ for the breakpoint
+    @media screen and ($type: #{$breakpoint}px) {
+
+      @content; // write CSS
+    }
+  }
+}
+
+@function color( $key ) {
+  @if map-has-key( $colors, $key ) {
+    @return map-get( $colors, $key );
+  } @else {
+    @warn "The '#{$key}' in $colors doesn't exist.";
+    @return null;
+  }
+}
+
+@mixin font-size($font-size: $base-font-size) {
+  $rem: ($font-size / $base-font-size);
+  font-size: $font-size * 1px;
+  font-size: #{$rem}rem;
+}
+
+.tabNav {
+  &__tabs {
+    display:none;
+
+    @include mq-breakpoint(small) {
+      display:flex;
+      flex-wrap:nowrap;
+      justify-content:center;
+      // flex-flow: row nowrap;
+      // align-items: stretch;
+      // justify-content: flex-start;
+      margin:0;
+      padding:0;
+      width:100%;
+      list-style:none;
+    }
+  }
+
+  &__tabItem {
+    overflow:hidden;
+    position:relative;
+    flex:1;
+    margin:0;
+    border:1px solid color(neutral-extralight);
+    border-left:0;
+    transition:background-color $transition-duration;
+    display:block;
+    border-bottom-color:transparent;
+    background-color:color(neutral-white);
+    color:color(neutral-dark);
+
+    &:first-child {
+      border-left:1px solid color(neutral-extralight);
+    }
+
+    /* Need to implement is-active functionality with routing service
+
+      &.is-active {
+      display:block;
+      border-bottom-color:transparent;
+      background-color:color(neutral-white);
+      color:color(neutral-dark);
+    }*/
+  }
+
+  &__link {
+    display:block;
+    padding:15px;
+    line-height:1.25em;
+    font-family: 'Gotham SSm A', 'Gotham SSm B', 'Helvetica Neue', Helvetica, Arial, sans-serif;;
+    @include font-size(13);
+    font-weight:500;
+    color:color(brand-primary);
+    text-align:left;
+    cursor:pointer;
+
+    @include mq-breakpoint(small) {
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      height:100%;
+      text-align:center;
+    }
+
+    .is-active & {
+      color:color(neutral-dark);
+    }
+
+    &:focus,
+    &:hover {
+      text-decoration:underline;
+      color:color(neutral-dark);
+    }
+  }
+
+  &__contentContainer {
+    border:1px solid color(neutral-extralight);
+    border-bottom:0;
+
+    &:last-child {
+      border-bottom:1px solid color(neutral-extralight);
+
+      @include mq-breakpoint(small) {
+        border:0;
+      }
+    }
+
+    @include mq-breakpoint(small) {
+      border:0;
+    }
+  }
+
+  &__header {
+    margin:0;
+
+    background-color:color(neutral-superlight);
+    transition:background-color $transition-duration;
+    cursor:pointer;
+    -webkit-touch-callout:none;
+    user-select:none;
+
+    &.is-active {
+      border-bottom:none;
+    }
+
+    &:focus,
+    &:hover {
+
+    }
+
+    @include mq-breakpoint(small) {
+      display:none;
+    }
+  }
+
+  &__content {
+    display:none;
+    padding:30px;
+    background-color:color(neutral-white);
+
+    @include mq-breakpoint(small) {
+      border:1px solid color(neutral-extralight);
+      border-top:0;
+    }
+  }
+
+  .panel & {
+    margin:-1px -1px 0;
+  }
+
+  &__container {
+    margin-top: -1px;
+  }
+}
