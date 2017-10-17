@@ -1,5 +1,5 @@
 {
-  "name": "navigation",
+  "name": "xynga-navigation",
   "version": "1.0.0",
   "description": "Holds all of the components classified under the label \"Navigation\"",
   "main": "index.js",
