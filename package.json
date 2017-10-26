@@ -1,6 +1,6 @@
 {
   "name": "xynga-navigation",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Holds all of the components classified under the label \"Navigation\"",
   "main": "index.js",
   "scripts": {
