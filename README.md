@@ -15,7 +15,7 @@ Xynga-Containers is one of the 7 Xynga libraries. Each of the 7 libraries are ma
 
 # Installation
 
-To install Xynga-Navigation, run the command <code>npm install xynga-navigation</code from Angular project directory that you wish to install the library to. It will then be available in the project's node_modules directory. All Xynga-Containers's third party dependencies will be automatically downloaded and placed in the project's node_modules directory as well. Then, simply import <code>NavigationModule</code> (from 'xynga-navigation') to the appropiate module in the project. 
+To install Xynga-Navigation, run the command <code>npm install xynga-navigation</code> from Angular project directory that you wish to install the library to. It will then be available in the project's node_modules directory. All Xynga-Containers's third party dependencies will be automatically downloaded and placed in the project's node_modules directory as well. Then, simply import <code>NavigationModule</code> (from 'xynga-navigation') to the appropiate module in the project. 
 
 Additionally, it is important that <code>"types" : ["node"]</code> and <code>"typeRoots" : ["../node_modules/@types"]</code> are added to the <code>"compilerOptions"</code> array in the project's tsconfig.app.json file, or else the project might not compile properly.
 
@@ -27,8 +27,10 @@ Detailed descriptions on how to use each each component in Xynga-Navigation, alo
 
 If you have a question about how a particular component or directive works, or would like to report a bug, please email xyngaba@gmail.com <br/>
 
-Xynga website: [XYNGA WEBSITE] <br/> <br/>
-github: github.com/xynga/navigation <br/> <br/>
+Xynga website: [XYNGA WEBSITE] <br/>
+
+github: https://github.com/xynga/navigation <br/>
+
 npm: https://www.npmjs.com/package/xynga-navigation <br/> <br/>
 
 # License
