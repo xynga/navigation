@@ -3,6 +3,7 @@ import {NgModule} from "@angular/core";
 import {MenuDirective} from "./menu/menu.directive";
 import {CommonModule} from "@angular/common";
 import {MenuComponent} from "./menu/menu.component";
+import {RouterModule} from "@angular/router";
 
 @NgModule({
   declarations: [
@@ -12,6 +13,7 @@ import {MenuComponent} from "./menu/menu.component";
   ],
   imports: [
     CommonModule,
+    RouterModule
   ],
   exports: [
     MenuComponent,
