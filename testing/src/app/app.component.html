@@ -1,0 +1,19 @@
+<div menu [focusActivate]="true"
+     [clickToggle]="true"
+     [mouseActivate]="false"
+     (opened)="onMenuOpen($event)"
+     (closed)="onMenuClose($event)">
+  Select Sandwich
+  <button boxer="margin-narrower">
+    <icon icon="chevron-down-green"></icon>
+  </button>
+  <ul body>
+    <li><a (click)="onMenuItemClick('hoagie')">Hoagie</a></li>
+    <li><a (click)="onMenuItemClick('hamburger')">Hamburger</a></li>
+    <li><a (click)="onMenuItemClick('cheesesteak')">Cheesesteak</a></li>
+    <li><a (click)="onMenuItemClick('reubin')">Reubin</a></li>
+  </ul>
+</div>
+<p *ngIf="selection">
+  You have selected
+</p>
