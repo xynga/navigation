@@ -1,8 +1,8 @@
 import {TabListComponent} from "./tab-list/tab-list.component";
 import {NgModule} from "@angular/core";
-import {MenuDirective} from "./menu/menu.directive";
+import {MenuDirective} from "../menu/menu.directive";
 import {CommonModule} from "@angular/common";
-import {MenuComponent} from "./menu/menu.component";
+import {MenuComponent} from "../menu/menu.component";
 import {RouterModule} from "@angular/router";
 
 @NgModule({

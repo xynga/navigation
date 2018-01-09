@@ -1,0 +1,22 @@
+{
+  "name": "xynga-navigation",
+  "version": "1.0.3",
+  "description": "Holds all of the components classified under the label \"Navigation\"",
+  "main": "./inline/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "gulp inline && ngc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xynga/navigation.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "peerDependencies": {
+    "@angular/core": ">=4.4.4",
+    "@angular/common": ">=4.4.4",
+    "@angular/router": ">=4.4.4",
+    "@angular/platform-browser": ">=4.4.4"
+  }
+}
