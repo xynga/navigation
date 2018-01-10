@@ -1,15 +1,14 @@
 import {TabListComponent} from "./tab-list/tab-list.component";
 import {NgModule} from "@angular/core";
-import {MenuDirective} from "../menu/menu.directive";
+
 import {CommonModule} from "@angular/common";
-import {MenuComponent} from "../menu/menu.component";
+import {MenuComponent} from "./menu/menu.component";
 import {RouterModule} from "@angular/router";
 
 @NgModule({
   declarations: [
     TabListComponent,
-    MenuComponent,
-    MenuDirective,
+    MenuComponent
   ],
   imports: [
     CommonModule,
@@ -17,8 +16,7 @@ import {RouterModule} from "@angular/router";
   ],
   exports: [
     MenuComponent,
-    MenuDirective,
-    TabListComponent,
+    TabListComponent
   ],
 })
 

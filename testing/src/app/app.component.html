@@ -1,4 +1,4 @@
-<div menu [focusActivate]="true"
+<menu-xynga [focusActivate]="true"
      [clickToggle]="true"
      [mouseActivate]="false"
      (opened)="onMenuOpen($event)"
@@ -15,7 +15,7 @@
     <li><a (click)="onMenuItemClick('cheesesteak')">Cheesesteak</a></li>
     <li><a (click)="onMenuItemClick('reubin')">Reubin</a></li>
   </ul>
-</div>
+</menu-xynga>
 <p *ngIf="selection">
   You have selected
 </p>
