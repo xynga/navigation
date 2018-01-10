@@ -11,14 +11,8 @@
     "type": "git",
     "url": "https://github.com/xynga/navigation.git"
   },
-  "author": "",
+  "author": "Gradtech V",
   "license": "MIT",
-  "peerDependencies": {
-    "@angular/core": "^4.4.4",
-    "@angular/common": "^4.4.4",
-    "@angular/router": "^4.4.4",
-    "@angular/platform-browser": "^4.4.4"
-  },
   "devDependencies": {
     "@angular/common": "^4.4.4",
     "@angular/compiler": "^4.4.4",
