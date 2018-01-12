@@ -3,8 +3,8 @@
      [mouseActivate]="false"
      (opened)="onMenuOpen($event)"
      (closed)="onMenuClose($event)">
-  Select Sandwich
   <button boxer="margin-narrower">
+    Select Sandwich
     <svg style="width: 16px; height: 9px">
       <path d="M0 1.7L8 9l8-7.3L14.2 0 8 5.7 1.8 0z"  fill="#c0d82f"/>
     </svg>
@@ -16,6 +16,6 @@
     <li><a (click)="onMenuItemClick('reubin')">Reubin</a></li>
   </ul>
 </menu-xynga>
-<p *ngIf="selection">
-  You have selected
+<p *ngIf="selection" class="selection">
+  You have selected: {{selection}}
 </p>
