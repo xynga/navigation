@@ -1,21 +1,29 @@
-<menu-xynga [focusActivate]="true"
-     [clickToggle]="true"
-     [mouseActivate]="false"
-     (opened)="onMenuOpen($event)"
-     (closed)="onMenuClose($event)">
-  <button boxer="margin-narrower">
-    Select Sandwich
-    <svg style="width: 16px; height: 9px">
-      <path d="M0 1.7L8 9l8-7.3L14.2 0 8 5.7 1.8 0z"  fill="#c0d82f"/>
-    </svg>
-  </button>
-  <ul body>
-    <li><a (click)="onMenuItemClick('hoagie')">Hoagie</a></li>
-    <li><a (click)="onMenuItemClick('hamburger')">Hamburger</a></li>
-    <li><a (click)="onMenuItemClick('cheesesteak')">Cheesesteak</a></li>
-    <li><a (click)="onMenuItemClick('reubin')">Reubin</a></li>
-  </ul>
-</menu-xynga>
-<p *ngIf="selection" class="selection">
-  You have selected: {{selection}}
-</p>
+<div class="menu">
+  <menu-xynga [focusActivate]="true"
+       [clickToggle]="true"
+       [mouseActivate]="false"
+       (opened)="onMenuOpen($event)"
+       (closed)="onMenuClose($event)">
+    <button boxer="margin-narrower" style="width: 200px">
+      Select Sandwich
+      <svg style="width: 16px; height: 9px">
+        <path d="M0 1.7L8 9l8-7.3L14.2 0 8 5.7 1.8 0z"  fill="#c0d82f"/>
+      </svg>
+    </button>
+    <ul body>
+      <li><a (click)="onMenuItemClick('hoagie')">Hoagie</a></li>
+      <li><a (click)="onMenuItemClick('hamburger')">Hamburger</a></li>
+      <li><a (click)="onMenuItemClick('cheesesteak')">Cheesesteak</a></li>
+      <li><a (click)="onMenuItemClick('reubin')">Reubin</a></li>
+    </ul>
+  </menu-xynga>
+  <p *ngIf="selection" class="selection" style="width: 200px">
+    You have selected: {{selection}}
+  </p>
+</div>
+<div>
+  <tab-list [tabs] = "tabs"></tab-list>
+</div>
+<div>
+  <router-outlet></router-outlet>
+</div>

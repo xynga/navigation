@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {ITab} from 'xynga-navigation/src/tab-list/tab-list.component';
 
 @Component({
   selector: 'app-root',
@@ -22,4 +23,20 @@ export class AppComponent {
   public onMenuClose(menuRootElement: HTMLElement): void {
     console.dir(menuRootElement);
   }
+
+  tabs: ITab[] = [
+    {
+      title: 'Tab1',
+      route: '/tab1'
+    },
+    {
+      title: 'Tab2',
+      route: '/tab2'
+    },
+    {
+      title: 'Tab3',
+      route: '/tab3'
+    }
+  ];
 }
+
