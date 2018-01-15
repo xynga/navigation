@@ -51,24 +51,52 @@ $colors: (
   font-size: #{$rem}rem;
 }
 
-
-[menu] {
-  display: block;
-
-  &:not(.open) > [body] {
-    transform: scale(.001, .001) translate(-100%, -100%);
-    opacity: 0;
-  }
-
-  &.open > [body] {
+:host(.open) {
+  position: absolute;
+  & /deep/ [body] {
     transform: scale(1, 1) translate(-50%, 0);
     opacity: 1;
-  }
-
-  & > [body] {
     z-index: 9999;
     position: absolute;
-    left: 50%;
+    box-shadow:  2px 2px 10px 0 rgba(color(neutral-black), .3);
+    border: 1px solid color(neutral-extralight);
+    margin: 0;
+    padding: 12px 0;
+    min-width: 200px;
+    background-color: color(neutral-white);
+    font-family: $brand-font;
+    font-weight: 700;
+    text-align: left;
+    white-space: nowrap;
+    transition: transform $transition-duration, opacity $transition-duration;
+
+    list-style: none;
+
+    a {
+      display: block;
+      padding: 12px 16px;
+      @include font-size(14);
+      color: color(neutral-dark);
+      transition: background-color $transition-duration;
+
+      &:focus,
+      &:hover {
+        background-color: color(neutral-superlight);
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+:host {
+  position: absolute;
+  & /deep/ [body] {
+    transform: scale(.001, .001) translate(-100%, -100%);
+    opacity: 0;
+    z-index: 9999;
+    position: absolute;
+    top: 150%;
+    left: 75%;
     box-shadow:  2px 2px 10px 0 rgba(color(neutral-black), .3);
     border: 1px solid color(neutral-extralight);
     margin: 0;
