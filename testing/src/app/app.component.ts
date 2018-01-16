@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {ITab} from 'xynga-navigation/src/tab-list/tab-list.component';
+import {ITab} from 'xynga-navigation';
 
 @Component({
   selector: 'app-root',
