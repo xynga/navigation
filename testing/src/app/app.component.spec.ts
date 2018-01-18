@@ -1,5 +1,7 @@
 import { TestBed, async } from '@angular/core/testing';
-import { MenuComponent, TabListComponent } from 'xynga-navigation';
+import { MenuComponent, TabListComponent, ITab } from 'xynga-navigation';
+import { NO_ERRORS_SCHEMA, DebugElement } from '@angular/core';
+import {By} from "@angular/platform-browser";
 
 describe('Menu-Component', () => {
   beforeEach(async(() => {
@@ -68,7 +70,7 @@ describe('Menu-Component', () => {
     fixture.detectChanges();
     expect(menu.checkFocus.bind).toHaveBeenCalled();
   }));
-/*  Cannot test Listeners with toHaveBeenCalled() because they are not methods of the menu class
+/*  Cannot test Listeners with toHaveBeenCalled() because they are not methods of the Menu class
 
  it('should remove clickListener', async(() => {
     const fixture = TestBed.createComponent(MenuComponent);
@@ -90,4 +92,24 @@ describe('Menu-Component', () => {
   }));
   */
 
+});
+
+describe('Tab-List-Component', () => {
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [
+        TabListComponent
+      ],
+      schemas: [ NO_ERRORS_SCHEMA ] // ignore RouterLink
+    }).compileComponents();
+  }));
+  it('should populate template element with name of tag', async(() => {
+    const fixture = TestBed.createComponent(TabListComponent);
+    const tabList = fixture.debugElement.componentInstance;
+    const testTabs: ITab[] = [{title: 'Tab1', route: ''}];
+    tabList.tabs = testTabs;
+
+    fixture.detectChanges();
+    expect(document.getElementsByClassName('tabNav__link')[0].innerHTML).toContain("Tab1");
+  }));
 });
