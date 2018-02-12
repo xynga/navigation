@@ -76,9 +76,9 @@ export class MenuComponent implements OnDestroy {
   }
 
   @HostListener('keydown', ['$event']) onHostKeydown(event: KeyboardEvent) {
-    if (<number>KeyCode.DOWN === event.keyCode || <number>KeyCode.ENTER === event.keyCode || <number>KeyCode.RETURN === event.keyCode) {
-      this.open();
-    }
+      if (<number>KeyCode.DOWN === event.keyCode || <number>KeyCode.ENTER === event.keyCode || <number>KeyCode.RETURN === event.keyCode) {
+          this.open();
+      }
   }
 
   @HostListener('blur', ['$event']) onHostBlur(event: FocusEvent) {
