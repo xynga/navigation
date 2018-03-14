@@ -5,7 +5,25 @@ export class AppPage {
     return browser.get('/');
   }
 
-  getParagraphText() {
-    return element(by.css('app-root h1')).getText();
+  getMenuButton() {
+    return element(by.cssContainingText('button', 'Select Sandwich'));
   }
+
+  checkMenuOpen() {
+    const openMenu = element(by.tagName('menu-xynga'));
+    return openMenu.getAttribute('class');
+  }
+
+  findTab(myTab: string) {
+    return element(by.cssContainingText('a', myTab));
+  }
+
+  checkForTab(myTab: string) {
+    const h1Tag = element(by.cssContainingText('h1', myTab));
+    return h1Tag.getText();
+  }
+
+
+
+
 }
