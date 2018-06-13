@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import {NavigationModule} from 'xynga-navigation';
+import {NavigationModule} from '../navigation';
 import {Routes, RouterModule} from "@angular/router";
 import {TabOneComponent} from "./example-tabs/tab-one.component";
 import {TabTwoComponent} from "./example-tabs/tab-two.component";

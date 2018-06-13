@@ -1,16 +1,14 @@
 const gulp = require('gulp');
 const inlineTemplates = require('gulp-inline-ng2-template');
 const sass = require('node-sass');
+const clean = require('gulp-clean');
 
 const INLINE_TEMPLATES = {
     SRC: [
-        './**/*.ts',
-        '!node_modules',
-        '!node_modules/**',
-        '!inline',
-        '!inline/**'
+        './src/navigation/**/*.ts',
+       '!./src/navigation/**/*.spec.ts'
     ],
-    DIST: './inline',
+    DIST: './dist',
     CONFIG: {
         base: '.',
         target: 'es6',
@@ -32,3 +30,12 @@ function compileSass(path, ext, file, callback) {
     });
     callback(null, compiledCss.css);
 }
+
+const CLEANUP_SRC = [
+  './dist/**/*.ts',
+  '!./dist/**/*.d.ts'
+];
+
+gulp.task('cleanup', () => {
+  return gulp.src(CLEANUP_SRC).pipe(clean());
+});

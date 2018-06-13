@@ -1,25 +1,21 @@
 {
   "name": "xynga-navigation",
-  "version": "1.1.7",
+  "version": "1.1.8",
   "description": "Holds all of the components classified under the label of \"Navigation\"",
-  "types": "dist/inline/index.d.ts",
-  "main": "dist/inline/index.js",
-  "files": [
-    "dist/inline"
-  ],
-  "scripts": {
-    "build": "cd src && npm run compile",
-    "link-build": "npm link && cd testing && npm link xynga-navigation",
-    "preversion": "npm run build",
-    "postversion": "git push",
-    "rebuild": "npm run build && npm start",
-    "setup": "cd src && npm i && cd .. && npm run build && cd testing && npm i && cd .. && npm run link-build",
-    "start": "cd testing && start chrome http://localhost:4200 && ng serve",
-    "test": "cd testing && ng test --watch=false --code-coverage",
-    "e2e": "cd testing && ng e2e"
-  },
   "author": "GradTech V",
   "license": "MIT",
+  "types": "dist/index.d.ts",
+  "main": "dist/index.js",
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "start": "",
+    "sandbox": "ng serve",
+    "build": "gulp inline && ngc -p \"./tsconfig.module.json\" && gulp cleanup",
+    "test": "ng test --code-coverage --watch=false",
+    "e2e": "ng e2e"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/xynga/navigation.git"
@@ -30,5 +26,42 @@
     "@angular/http": "^4.0.0 || ^5.0.0",
     "@angular/router": "^4.0.0 || ^5.0.0",
     "rxjs": "^5.5.0"
+  },
+  "devDependencies": {
+    "@angular/animations": "4.0.0",
+    "@angular/cli": "^1.7.4",
+    "@angular/common": "^4.4.4",
+    "@angular/compiler": "^4.4.7",
+    "@angular/compiler-cli": "^4.4.7",
+    "@angular/core": "^4.4.4",
+    "@angular/forms": "4.0.0",
+    "@angular/http": "4.0.0",
+    "@angular/language-service": "4.0.0",
+    "@angular/platform-browser": "^4.4.4",
+    "@angular/platform-browser-dynamic": "4.0.0",
+    "@angular/router": "^4.4.4",
+    "@types/jasmine": "~2.5.53",
+    "@types/jasminewd2": "~2.0.2",
+    "@types/node": "~6.0.60",
+    "codelyzer": "^4.0.1",
+    "core-js": "^2.4.1",
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.4.0",
+    "gulp-inline-ng2-template": "^4.0.0",
+    "jasmine-core": "~2.6.2",
+    "jasmine-spec-reporter": "~4.1.0",
+    "karma": "~1.7.0",
+    "karma-chrome-launcher": "~2.1.1",
+    "karma-cli": "~1.0.1",
+    "karma-coverage-istanbul-reporter": "^1.2.1",
+    "karma-jasmine": "~1.1.0",
+    "karma-jasmine-html-reporter": "^0.2.2",
+    "node-sass": "^4.7.2",
+    "protractor": "~5.1.2",
+    "rxjs": "^5.0.1",
+    "ts-node": "~3.2.0",
+    "tslint": "~5.7.0",
+    "typescript": "~2.4.2",
+    "zone.js": "^0.8.4"
   }
 }
