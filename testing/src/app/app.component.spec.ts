@@ -113,16 +113,6 @@ describe('Menu-Component', () => {
     menu.onHostClick();
     expect(spy).toHaveBeenCalled();
   }));
-  // it('should call open if the down key is pressed', async(() => {
-  //   const fixture = TestBed.createComponent(MenuComponent);
-  //   const menu = fixture.debugElement.componentInstance;
-  //   const event = new KeyboardEvent('keydown', {'key' : 'ArrowDown'});
-  //   const spy = spyOn(menu, 'open').and.stub();
-  //   console.log(event.keyCode);
-  //   menu.onHostKeydown(event);
-  //   expect(spy).toHaveBeenCalled();
-  //
-  // }));
   it('should close menu after "mouse over" event is triggered', async(() => {
     const fixture = TestBed.createComponent(MenuComponent);
     const menu = fixture.debugElement.componentInstance;
