@@ -1,7 +1,7 @@
 <div class="tabNav">
   <ul class="tabNav__tabs">
     <li *ngFor="let tab of tabs" class="tabNav__tabItem" role="presentation">
-      <a [routerLink]="tab.route" class="tabNav__link" role="tab" aria-selected="true" tabindex="0">{{tab.title}}</a>
+      <a [routerLink]="tab.route" class="tabNav__link" [ngClass]="tab.class" role="tab" (click)="setActive(tab)" aria-selected="true" tabindex="0">{{tab.title}}</a>
     </li>
   </ul>
 </div>

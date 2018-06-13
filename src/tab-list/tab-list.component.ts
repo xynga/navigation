@@ -5,6 +5,7 @@ const SELECTOR: string = 'tab-list';
 export interface ITab {
   title: string;
   route: string;
+  class?: string;
 }
 
 @Component({
@@ -15,4 +16,11 @@ export interface ITab {
 
 export class TabListComponent {
   @Input() tabs: ITab[] = [];
+
+  setActive(myTab: ITab){
+    for(let tab of this.tabs){
+      tab.class = '';
+    }
+    myTab.class = 'active';
+  }
 }
