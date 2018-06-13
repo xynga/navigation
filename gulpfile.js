@@ -31,6 +31,11 @@ function compileSass(path, ext, file, callback) {
     callback(null, compiledCss.css);
 }
 
+const CLEANUP_SRC = [
+  './dist/**/*.ts',
+  '!./dist/**/*.d.ts'
+];
+
 gulp.task('cleanup', () => {
   return gulp.src(CLEANUP_SRC).pipe(clean());
 });
