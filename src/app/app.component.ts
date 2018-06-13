@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {ITab} from 'xynga-navigation';
+import {ITab} from '../navigation';
 
 @Component({
   selector: 'app-root',

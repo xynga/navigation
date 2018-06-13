@@ -12,7 +12,6 @@
       "@angular/core": ["node_modules/@angular/core"]
     },
     "rootDir": ".",
-    "outDir": "../dist",
     "sourceMap": true,
     "inlineSources": true,
     "target": "es5",
@@ -23,7 +22,7 @@
     ]
   },
   "include" :[
-    "inline/**/*"
+    "dist/**/*"
   ],
   "angularCompilerOptions": {
     "strictMetadataEmit": true,
