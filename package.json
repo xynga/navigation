@@ -13,7 +13,7 @@
     "start": "",
     "sandbox": "ng serve",
     "build": "gulp inline && ngc -p \"./tsconfig.module.json\" && gulp cleanup",
-    "test": "ng test --code-coverage --watch=false",
+    "test": "ng test",
     "e2e": "ng e2e"
   },
   "repository": {
